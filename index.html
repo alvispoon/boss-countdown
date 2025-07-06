@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>New Job, Same Player Energy 🔥</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background: #000;
+      color: #FFD700;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+    }
+    h1 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      color: #fff;
+    }
+    .countdown {
+      font-size: 3rem;
+      font-weight: bold;
+    }
+    .subtext {
+      margin-top: 10px;
+      font-size: 1rem;
+      color: #ccc;
+    }
+    .container {
+      position: relative;
+      width: 400px;
+    }
+    .boss-img {
+      position: absolute;
+      left: -90px;
+      bottom: 10px;
+      height: 180px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img class="boss-img" src="boss.png" alt="boss">
+    <h1>New Job, Same Player Energy 🔥</h1>
+    <div class="countdown" id="countdown">Loading...</div>
+    <div class="subtext">Until the chaos begins... 😈</div>
+  </div>
+
+  <script>
+    const countdownEl = document.getElementById('countdown');
+    const targetDate = new Date("2025-07-07T09:00:00+08:00").getTime();
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+
+      if (distance < 0) {
+        countdownEl.innerHTML = "🚀 It's showtime!";
+        return;
+      }
+
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      countdownEl.innerHTML = `${hours}h ${minutes}m ${seconds}s`;
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+  </script>
+</body>
+</html>
